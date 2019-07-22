@@ -52,7 +52,7 @@ namespace DatingPortal.API.Dtos
 
 
         // Bookmark Photo
-        public ICollection<Photo> Photos { get; set; }
+        public ICollection<PhotosForDetailsDto> Photos { get; set; }
         public string PhotoUrl { get; set; }
     }
 }

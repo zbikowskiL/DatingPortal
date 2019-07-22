@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
+using DatingPortal.API.Dtos;
 using DatingPortal.API.Models.Iterfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +15,12 @@ namespace DatingPortal.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserRepository repository;
+        private readonly IMapper mapper;
 
-        public UsersController(IUserRepository repository)
+        public UsersController(IUserRepository repository, IMapper mapper)
         {
             this.repository = repository;
+            this.mapper = mapper;
         }
 
         [HttpGet]
@@ -23,7 +28,9 @@ namespace DatingPortal.API.Controllers
         {
             var users = await repository.GetUsers();
 
-            return Ok(users);
+            var usersToReturn = mapper.Map<IEnumerable<UserForListDto>>(users);
+
+            return Ok(usersToReturn);
         }
 
         [HttpGet("{id}")]
@@ -31,7 +38,9 @@ namespace DatingPortal.API.Controllers
         {
             var user = await repository.GetUser(id);
 
-            return Ok(user);
+            var userToReturn = mapper.Map<UserForDetalisDto>(user);
+
+            return Ok(userToReturn);
         }
     }
 }
