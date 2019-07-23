@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -26,6 +27,7 @@ namespace DatingPortal.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
+
             var users = await repository.GetUsers();
 
             var usersToReturn = mapper.Map<IEnumerable<UserForListDto>>(users);
