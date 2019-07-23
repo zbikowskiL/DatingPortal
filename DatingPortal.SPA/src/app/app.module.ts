@@ -16,6 +16,7 @@ import { UsersListComponent } from './users/users-list/users-list.component';
 import { LikesComponent } from './likes/likes/likes.component';
 import { MessagesComponent } from './messages/messages/messages.component';
 import { appRoutes } from './routes';
+import { AuthGuard } from './_guards/auth.guard';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -47,7 +48,8 @@ export function tokenGetter() {
   providers: [
     AuthService,
     UserService,
-    AlertifyService
+    AlertifyService,
+    AuthGuard
   ],
   bootstrap: [
     AppComponent
