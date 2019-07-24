@@ -1,5 +1,27 @@
-<div>
-  <p *ngFor="let user of users">
-    {{user.username}} - {{user.age}} - {{user.gender}}
-  </p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-12">
+      Place for your advertisement ! Place for your advertisement ! Place for your advertisement ! Place for your
+      advertisement ! Place for your advertisement !
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+
+    <div class="col-lg-2 col-md-4 col-sm-6">
+      Place for your advertisement ! Place for your advertisement ! Place for your advertisement ! Place for your
+      advertisement ! Place for your advertisement !
+    </div>
+
+    <div class="col-lg-10 col-md-8 col-sm-6">
+      <div class="row">
+        <div *ngFor="let user of users" class="col-lg-2 col-md-4 col-sm-6">
+          <app-user-card [user]='user'></app-user-card>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
