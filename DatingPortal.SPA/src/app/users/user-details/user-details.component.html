@@ -2,31 +2,31 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
-        <img src="{{user?.photoUrl}}" alt="{{user?.username}}" class="card-img-top img-thumbnail">
+        <img src="{{user.photoUrl}}" alt="{{user.username}}" class="card-img-top img-thumbnail">
         <div class="card-body">
           <strong class="mr-2">Age:</strong>
-          <p class="d-inline-block">{{user?.age}}</p>
+          <p class="d-inline-block">{{user.age}}</p>
         </div>
 
         <div class="card-body">
           <strong class="mr-2">Zodiac sign:</strong>
-          <p class="d-inline-block">{{user?.zodiacSign}}</p>
+          <p class="d-inline-block">{{user.zodiacSign}}</p>
         </div>
         <div class="card-body">
           <strong class="mr-2">City:</strong>
-          <p class="d-inline-block">{{user?.city}}</p>
+          <p class="d-inline-block">{{user.city}}</p>
         </div>
         <div class="card-body">
           <strong class="mr-2">Country:</strong>
-          <p class="d-inline-block">{{user?.country}}</p>
+          <p class="d-inline-block">{{user.country}}</p>
         </div>
         <div class="card-body">
           <strong class="mr-2">Last active:</strong>
-          <p class="d-inline-block">{{user?.lastActive | date}}</p>
+          <p class="d-inline-block">{{user.lastActive | date}}</p>
         </div>
         <div class="card-body">
           <strong class="mr-2">User from:</strong>
-          <p class="d-inline-block">{{user?.created | date}}</p>
+          <p class="d-inline-block">{{user.created | date}}</p>
         </div>
       </div>
       <div class="card-footer">
@@ -39,43 +39,43 @@
 
     <div class="col-sm-8">
       <div class="tab-panel">
-        <tabset>
-          <tab heading="Information {{ user?.username | titlecase }}">
-            <table style="width: 100%">
+        <tabset class="user-tabset">
+          <tab heading="Information {{ user.username | titlecase }}">
+            <table class="user-table">
               <tr>
-                <td style="width: 50%">
+                <td class="user-table-td">
                   <h5>Growth</h5>
-                  <p>{{user?.growth}}</p>
+                  <p>{{user.growth}}</p>
                 </td>
-                <td style="width: 50%">
+                <td class="user-table-td">
                   <h5>EyeColor</h5>
-                  <p>{{user?.eyeColor}}</p>
+                  <p>{{user.eyeColor}}</p>
                 </td>
               </tr>
               <tr>
                 <td>
                   <h5>MartialStatus</h5>
-                  <p>{{user?.martialStatus}}</p>
+                  <p>{{user.martialStatus}}</p>
                 </td>
                 <td>
                   <h5>Education</h5>
-                  <p>{{user?.education}}</p>
+                  <p>{{user.education}}</p>
                 </td>
               </tr>
               <tr>
                 <td>
                   <h5>Profession</h5>
-                  <p>{{user?.profession}}</p>
+                  <p>{{user.profession}}</p>
                 </td>
                 <td>
                   <h5>Languages</h5>
-                  <p>{{user?.languages}}</p>
+                  <p>{{user.languages}}</p>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td class="user-table-td">
                   <h5>Has children</h5>
-                  <p>{{user?.children}}</p>
+                  <p>{{user.children}}</p>
                 </td>
                 <td>
 
@@ -85,37 +85,37 @@
           </tab>
           <tab heading="About me">
             <h5>Motto</h5>
-            <p>{{user?.motto}}</p>
+            <p>{{user.motto}}</p>
             <h5>Description</h5>
-            <p>{{user?.description}}</p>
+            <p>{{user.description}}</p>
             <h5>Personality</h5>
-            <p>{{user?.personality}}</p>
+            <p>{{user.personality}}</p>
             <h5>Looking for</h5>
-            <p>{{user?.lookingFor}}</p>
+            <p>{{user.lookingFor}}</p>
           </tab>
           <tab heading="Interests">
             <h5>Interests</h5>
-            <p>{{user?.interests}}</p>
+            <p>{{user.interests}}</p>
             <h5>Free Time</h5>
-            <p>{{user?.freeTime}}</p>
+            <p>{{user.freeTime}}</p>
             <h5>Sport</h5>
-            <p>{{user?.sport}}</p>
+            <p>{{user.sport}}</p>
             <h5>Movies</h5>
-            <p>{{user?.movies}}</p>
+            <p>{{user.movies}}</p>
             <h5>Music</h5>
-            <p>{{user?.music}}</p>
+            <p>{{user.music}}</p>
           </tab>
           <tab heading="Preferences">
             <h5>I like</h5>
-            <p>{{user?.iLike}}</p>
+            <p>{{user.iLike}}</p>
             <h5>I don't like</h5>
-            <p>{{user?.idoNotLike}}</p>
+            <p>{{user.idoNotLike}}</p>
             <h5>Makes me laugh</h5>
-            <p>{{user?.makesMeLaugh}}</p>
+            <p>{{user.makesMeLaugh}}</p>
             <h5>It feels best in</h5>
-            <p>{{user?.itFeelsBestIn}}</p>
+            <p>{{user.itFeelsBestIn}}</p>
             <h5>Friende would describe me</h5>
-            <p>{{user?.friendeWouldDescribeMe}}</p>
+            <p>{{user.friendeWouldDescribeMe}}</p>
           </tab>
           <tab heading="Photos">
             Photos
