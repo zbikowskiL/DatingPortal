@@ -1,3 +1,44 @@
-<p>
-  {{user?.username}}
-</p>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="{{user?.photoUrl}}" alt="{{user?.username}}" class="card-img-top img-thumbnail">
+        <div class="card-body">
+          <strong class="mr-2">Age:</strong>
+          <p class="d-inline-block">{{user?.age}}</p>
+        </div>
+
+        <div class="card-body">
+          <strong class="mr-2">Zodiac sign:</strong>
+          <p class="d-inline-block">{{user?.zodiacSign}}</p>
+        </div>
+        <div class="card-body">
+          <strong class="mr-2">City:</strong>
+          <p class="d-inline-block">{{user?.city}}</p>
+        </div>
+        <div class="card-body">
+          <strong class="mr-2">Country:</strong>
+          <p class="d-inline-block">{{user?.country}}</p>
+        </div>
+        <div class="card-body">
+          <strong class="mr-2">User last active:</strong>
+          <p class="d-inline-block">{{user?.lastActive}}</p>
+        </div>
+        <div class="card-body">
+          <strong class="mr-2">User from:</strong>
+          <p class="d-inline-block">{{user?.created}}</p>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="button-group d-flex">
+          <button class="btn btn-info w-100">Like</button>
+          <button class="btn btn-primary w-100">Message</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+
+    </div>
+  </div>
+</div>
