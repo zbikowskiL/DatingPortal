@@ -24,6 +24,8 @@ import { UserCardComponent } from './users/user-card/user-card.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { UserDetailResolver } from './_resolvers/user-details.resolver';
 import { UsersListResolver } from './_resolvers/users-list.resolver';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { UserEditResolver } from './_resolvers/user-edit.resolver copy';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -39,7 +41,8 @@ export function tokenGetter() {
     LikesComponent,
     MessagesComponent,
     UserCardComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ export function tokenGetter() {
     AuthGuard,
     ErrorInterceptorProvider,
     UserDetailResolver,
-    UsersListResolver
+    UsersListResolver,
+    UserEditResolver
   ],
   bootstrap: [
     AppComponent

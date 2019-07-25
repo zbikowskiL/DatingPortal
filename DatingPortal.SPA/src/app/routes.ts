@@ -7,6 +7,8 @@ import { AuthGuard } from './_guards/auth.guard';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { UserDetailResolver } from './_resolvers/user-details.resolver';
 import { UsersListResolver } from './_resolvers/users-list.resolver';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { UserEditResolver } from './_resolvers/user-edit.resolver copy';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,8 +19,12 @@ export const appRoutes: Routes = [
     children: [
       { path: 'users', component: UsersListComponent, resolve: { users: UsersListResolver } },
       { path: 'user/:id', component: UserDetailsComponent, resolve: { user: UserDetailResolver } },
+      { path: 'users/edit', component: UserEditComponent, resolve: { user: UserEditResolver } },
       { path: 'likes', component: LikesComponent },
       { path: 'messages', component: MessagesComponent },
+
+
+
     ]
   },
   { path: '**', redirectTo: '', pathMatch: 'full' }
