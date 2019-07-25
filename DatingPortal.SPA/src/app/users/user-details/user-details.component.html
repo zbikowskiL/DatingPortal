@@ -1,5 +1,8 @@
 <div class="container mt-3">
   <div class="row">
+    <h1>Profil {{user.username | titlecase}}</h1>
+  </div>
+  <div class="row">
     <div class="col-sm-4">
       <div class="card">
         <img src="{{user.photoUrl}}" alt="{{user.username}}" class="card-img-top img-thumbnail">
@@ -118,7 +121,7 @@
             <p>{{user.friendeWouldDescribeMe}}</p>
           </tab>
           <tab heading="Photos">
-            Photos
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
           </tab>
           <tab heading="Messages">
             Messages
