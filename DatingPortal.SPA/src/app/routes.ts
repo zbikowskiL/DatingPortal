@@ -9,6 +9,7 @@ import { UserDetailResolver } from './_resolvers/user-details.resolver';
 import { UsersListResolver } from './_resolvers/users-list.resolver';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolver copy';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,7 +20,11 @@ export const appRoutes: Routes = [
     children: [
       { path: 'users', component: UsersListComponent, resolve: { users: UsersListResolver } },
       { path: 'user/:id', component: UserDetailsComponent, resolve: { user: UserDetailResolver } },
-      { path: 'users/edit', component: UserEditComponent, resolve: { user: UserEditResolver } },
+      {
+        path: 'users/edit', component: UserEditComponent,
+        resolve: { user: UserEditResolver },
+        canDeactivate: [PreventUnsavedChanges]
+      },
       { path: 'likes', component: LikesComponent },
       { path: 'messages', component: MessagesComponent },
 
