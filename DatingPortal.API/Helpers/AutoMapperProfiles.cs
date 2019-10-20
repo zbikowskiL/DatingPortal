@@ -26,6 +26,7 @@ namespace DatingPortal.API.Helpers
                     options.ResolveUsing(src => src.DateOfBirth.CalculateAge());
                 });
             CreateMap<Photo, PhotosForDetailsDto>();
+            CreateMap<UserForUpdateDto, User>();
         }
     }
 }
