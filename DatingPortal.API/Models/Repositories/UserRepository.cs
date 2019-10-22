@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using DatingPortal.API.Data;
 using DatingPortal.API.Models.Iterfaces;
@@ -24,6 +25,12 @@ namespace DatingPortal.API.Models.Repositories
         {
             var users = await context.Users.Include(p => p.Photos).ToListAsync();
             return users;
+        }
+
+        public async Task<Photo> GetPhoto(int id)
+        {
+            var photo = await context.Photos.FirstOrDefaultAsync(x => x.Id == id);
+            return photo;
         }
     }
 }

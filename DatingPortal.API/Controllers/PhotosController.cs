@@ -30,17 +30,16 @@ namespace DatingPortal.API.Controllers
             this.mapper = mapper;
             this.userRepository = userRepository;
 
-            Account account = new Account(
-                cloudinaryConfig.Value.CloudName,
-                cloudinaryConfig.Value.ApiKey,
-                cloudinaryConfig.Value.SecretKey
-            );
+            Account account = new Account();
+            account.Cloud = cloudinaryConfig.Value.CloudName;
+            account.ApiKey = cloudinaryConfig.Value.ApiKey;
+            account.ApiSecret = cloudinaryConfig.Value.SecretKey;
 
             cloudinary = new Cloudinary(account);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPhotoForUser(int userId, PhotoForCreationDto photoForCreationDto)
+        public async Task<IActionResult> AddPhotoForUser(int userId, [FromForm] PhotoForCreationDto photoForCreationDto)
         {
             if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
@@ -76,9 +75,22 @@ namespace DatingPortal.API.Controllers
             userFromRepo.Photos.Add(photo);
 
             if (await userRepository.SaveAll())
-                return Ok();
+            {
+                var photoToReturn = mapper.Map<PhotoForReturnDto>(photo);
+                return CreatedAtRoute("GetPhoto", new { id = photo.Id }, photoToReturn);
+            }
 
             return BadRequest("Can't add photo!");
+        }
+
+        [HttpGet("{id}", Name = "GetPhoto")]
+        public async Task<IActionResult> GetPhoto(int id)
+        {
+            var photoFromRepo = await userRepository.GetPhoto(id);
+
+            var photoForReturn = mapper.Map<PhotoForReturnDto>(photoFromRepo);
+
+            return Ok(photoForReturn);
         }
     }
 }
