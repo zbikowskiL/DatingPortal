@@ -27,6 +27,7 @@ import { UsersListResolver } from './_resolvers/users-list.resolver';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolver copy';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { PhotosComponent } from './users/photos/photos.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -43,7 +44,8 @@ export function tokenGetter() {
     MessagesComponent,
     UserCardComponent,
     UserDetailsComponent,
-    UserEditComponent
+    UserEditComponent,
+    PhotosComponent
   ],
   imports: [
     BrowserModule,
